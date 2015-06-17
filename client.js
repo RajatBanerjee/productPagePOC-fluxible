@@ -20,9 +20,9 @@ app.rehydrate(dehydratedState, function(err, context){
   }
 
   // window.context = context;
-  var mountNode = document.getElementById('bodyContent');
+  var mountNode = document.getElementById('loader');
   var Component = app.getComponent();
-  //console.log(context.getComponentContext() )
+
   React.render(
     Component({ context: context.getComponentContext() }),
     mountNode,

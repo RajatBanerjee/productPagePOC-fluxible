@@ -151,17 +151,15 @@ module.exports = {
           metaTags.push(results.seoData[i].Value);
         }
 
-        var promoData = results.promoData;
-      promoData.DiscountExpirationDt = new Date(parseInt(promoData.DiscountExpirationDt.split("/Date(").pop().split(")/")[0]));
-      promoData.DiscountExpirationDt = (promoData.DiscountExpirationDt.getMonth() + 1) + "/" + promoData.DiscountExpirationDt.getDate() + "/" + promoData.DiscountExpirationDt.getFullYear().toString().substr(2, 2);
-      
         // res.render('product', {
         //   htmlTag: results.seoData[0].Value,
         //   title: results.seoData[1].Value,
         //   metaTags: metaTags,
         //   markup: markup
         // });
-
+        var promoData = results.promoData;
+        promoData.DiscountExpirationDt = new Date(parseInt(promoData.DiscountExpirationDt.split("/Date(").pop().split(")/")[0]));
+        promoData.DiscountExpirationDt = (promoData.DiscountExpirationDt.getMonth() + 1) + "/" + promoData.DiscountExpirationDt.getDate() + "/" + promoData.DiscountExpirationDt.getFullYear().toString().substr(2, 2);
         var apiData = {
           title: titleData,
           hero: herodata,
@@ -171,7 +169,7 @@ module.exports = {
           metaTags: metaTags,
           promoData:promoData
         };
-        // console.log('apiData.metaTags: ',apiData.metaTags)
+         //console.log('apiData: ',apiData);
         // console.log('apiData: ', apiData);
         // res.render()
         // console.log('callback: ',callback)

@@ -105,6 +105,7 @@ server.use(function(req, res){
      // console.log('metaTags: ', app.dehydrate(context).context.dispatcher.stores.ProductStore.products.metaTags);
 
      var productData = app.dehydrate(context).context.dispatcher.stores.ProductStore.products;
+
      // console.log('productData: ', productData);
 
      var markup = React.renderToString(
@@ -124,6 +125,7 @@ server.use(function(req, res){
        markup: markup,
        state: exposed
      });
+
 
   });
 });

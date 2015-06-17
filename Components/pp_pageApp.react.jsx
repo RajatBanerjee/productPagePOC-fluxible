@@ -3,10 +3,10 @@ var React = require('react');
 var Title = require('./pp_TitleComponent.react.jsx');
 var Hero = require('./pp_heroComponent.react.jsx');
 var RightComponent = require('./rightComponent.react.jsx');
-var SkinnyBannerComponent= require('./skinnyBannerComponent.react.jsx');
+var SkinnyBannerComponent= require('./SkinnyBannerComponent.react.jsx');
 var FluxibleMixin = require('fluxible').Mixin;
 var ProductStore = require('../stores/productStore');
-var TestComponent = require('./testComponent.react.jsx');
+
 var pp_pageApp = React.createClass({
 
 	mixins: [ FluxibleMixin ],
@@ -31,11 +31,16 @@ var pp_pageApp = React.createClass({
 
 	getInitialState:  function() {
     var data = this.getStore(ProductStore).getProducts()
-		
+		// console.log('product store data: ',data);
     return {
     	data: data
     };
 	},
+
+	clickhandler: function(){
+		console.log("clickeddddddddddd");
+	},
+
 
 	addToCart: function() {
 		// e.preventDefault();
@@ -43,8 +48,9 @@ var pp_pageApp = React.createClass({
 		return false;
 	},
 
+
 	render: function() {
-		
+		// console.log('pp_pageApp context: ',this.context);
 
 		return (
 			<div id="pageApp">
@@ -52,6 +58,7 @@ var pp_pageApp = React.createClass({
 				<Title titleData={this.state.data.title}></Title>
 				<Hero heroData={this.state.data.hero}></Hero>
 				<RightComponent priceData={this.state.data.price} addToCart={this.addToCart}></RightComponent>
+
 			</div>
 		);
 	}

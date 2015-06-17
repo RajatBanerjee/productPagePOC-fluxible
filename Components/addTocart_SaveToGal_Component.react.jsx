@@ -11,18 +11,23 @@ var addTocart_SaveToGal_Component = React.createClass({
 	},
 
 	mixins: [FluxibleMixin],
+	clickHandler : function(){
+		console.log('huhahahahhahhah')
+	},
 
-	
-	add: function(){
-		console.log('addTocart_SaveToGal_Component click');
-		this.context.executeAction(AddToCartAction, {});
+	handleClick: function(e){
+		e.stopPropagation() 
+		alert('click handled');
 	},
 
 	render: function() {
-		console.log('this.props.addToCart: ',this.props.addToCart)
+	
 		return (
 			<div className="addTocart_SaveToGal_Component pure-u-1 pure-u-md-23-24">
-				<button type="button" className="addToCart btn pure-u-sm-3-5" onClick={this.add}>ADD TO CART</button>
+
+				<div className="addToCart btn pure-u-sm-3-5">
+					<a className="btnAddToCart" href="" onClick={this.handleClick}>ADD TO CART</a>
+				</div>
 				<div className="addToGal">
 					<i className="fa fa-heart-o fa-2x"></i>
 				</div>

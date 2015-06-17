@@ -40,6 +40,7 @@ var ProductStore = createStore({
    */
 
   updateProduct: function(payload) {
+    //console.log('payload :',payload);
     this.products = payload;
     this.emitChange();
    },
